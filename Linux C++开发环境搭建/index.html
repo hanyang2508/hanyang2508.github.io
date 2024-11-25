@@ -8,23 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://hanyang2508.github.io/">
+        <link rel="canonical" href="https://hanyang2508.github.io/Linux%20C%2B%2B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
       
       
+        <link rel="prev" href="../CLion%E9%85%8D%E7%BD%AE/">
       
-        <link rel="next" href="C%26CPP%20Debug%E7%AC%94%E8%AE%B0/">
+      
+        <link rel="next" href="../Notes%20On%20CUDA%20C%2B%2B%20Programming%20Guide/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Han YANG's BLOG</title>
+        <title>Linux C++开发环境搭建 - Han YANG's BLOG</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -43,7 +45,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#linux-c" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Han YANG&#39;s BLOG" class="md-header__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
+    <a href=".." title="Han YANG&#39;s BLOG" class="md-header__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Linux C++开发环境搭建
             
           </span>
         </div>
@@ -173,7 +175,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Han YANG&#39;s BLOG" class="md-nav__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
+    <a href=".." title="Han YANG&#39;s BLOG" class="md-nav__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -183,6 +185,66 @@
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C%26CPP%20Debug%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C&CPP Debug笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLion%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLion配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
       
       
@@ -204,18 +266,18 @@
           
   
   <span class="md-ellipsis">
-    Welcome to MkDocs
+    Linux C++开发环境搭建
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Welcome to MkDocs
+    Linux C++开发环境搭建
   </span>
   
 
@@ -237,20 +299,59 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      工具链搭建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具链搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装编译调试工具
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      安装项目构建工具
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟机
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -269,67 +370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="C%26CPP%20Debug%E7%AC%94%E8%AE%B0/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    C&CPP Debug笔记
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="CLion%E9%85%8D%E7%BD%AE/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CLion配置
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Linux%20C%2B%2B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Linux C++开发环境搭建
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="Notes%20On%20CUDA%20C%2B%2B%20Programming%20Guide/" class="md-nav__link">
+      <a href="../Notes%20On%20CUDA%20C%2B%2B%20Programming%20Guide/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -349,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Visual%20Studio%20%28VS%29%20%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+      <a href="../Visual%20Studio%20%28VS%29%20%E9%85%8D%E7%BD%AE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -369,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cmake%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+      <a href="../cmake%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,20 +450,59 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
+      工具链搭建
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="工具链搭建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装编译调试工具
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      Project layout
+      安装项目构建工具
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      服务器配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="服务器配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      虚拟机
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -441,21 +521,66 @@
                   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li>test1</li>
-<li>test2</li>
-<li>tesdt3</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+<h1 id="linux-c">Linux C++开发环境搭建</h1>
+<h2 id="_1">工具链搭建</h2>
+<h3 id="_2">安装编译调试工具</h3>
+<p>安装命令如下：</p>
+<pre><code class="language-cpp">sudo apt update
+sudo apt install gcc g++
+sudo apt install gdb
 </code></pre>
+<p>验证环境是否安装成功：</p>
+<pre><code class="language-cpp">#include&lt;iostream&gt;
+int main()
+{
+    std::cout &lt;&lt; &quot;Hello World From CXX&quot; &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<p>编译运行：</p>
+<pre><code class="language-cpp">g++ hello.cpp -o hello_cpp
+./hello_cpp
+</code></pre>
+<h3 id="_3">安装项目构建工具</h3>
+<p>安装 CMake 前需要先安装 make： <code>sudo apt install make</code></p>
+<p>查看 cmake 版本</p>
+<pre><code class="language-cpp">cmake --version
+</code></pre>
+<p>注意： <code>sudo apt install make cmake</code> 安装的 cmake 版本一般很低，所以不用这个方法安装，如果已经安装了低版本的 cmake，用下面的指令卸载：</p>
+<pre><code class="language-cpp">sudo apt -y remove cmake
+</code></pre>
+<p>去官网上下载 cmake 的安装包：<a href="https://cmake.org/download/">Download | CMake</a>，然后执行下面指令</p>
+<pre><code class="language-cpp">sudo tar -zxvf  cmake-3.27.1.tar.gz
+cd cmake-3.27.1
+sudo apt-get -y install libssl-dev
+sudo ./configure
+sudo make -j8
+sudo make install
+</code></pre>
+<p>补充：下面这个报错是因为我最开始在虚拟机中构建的时候选择了 16 线程而非 8 线程，导致该线程被杀死 
+<img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/%E8%BF%9B%E7%A8%8B%E6%95%B0%E7%9B%AE%E8%BF%87%E5%A4%A7.png" /></p>
+<p>重新查看版本，如果出现 cmake 版本号即安装成功，如果 <code>cmake --version</code> 没有显示的话，执行下面指令</p>
+<pre><code class="language-cpp">sudo cp ./bin/cmake /usr/bin/
+</code></pre>
+<p>注意，<code>sudo apt remove cmake</code> 命令无法卸载源码安装的 <code>cmake</code>。
+如需卸载源码安装的<code>cmake</code>，需要进入到安装时执行<code>make install</code>时的路径下， 执行卸载命令：</p>
+<pre><code class="language-cpp">sudo make uninstall
+</code></pre>
+<h2 id="_4">服务器配置</h2>
+<h3 id="_5">虚拟机</h3>
+<p><strong>注意，只有特定型号的虚拟机才能安装 CUDA，个人笔记本上的显卡（如 RTX3060 显卡）是不支持在虚拟机中使用的。</strong>
+具体支持型号见：<a href="https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-ubuntu/index.html">Ubuntu :: NVIDIA Virtual GPU Software Documentation</a></p>
+<p>配置 ssh 服务：</p>
+<pre><code class="language-cpp">sudo apt-get install openssh-server
+sudo systemctl start ssh
+</code></pre>
+<p>增加一个网卡便于 Windows 与虚拟机互连，注意虚拟机中网卡不能设置为 VMNet0，而应该设置为 VMnet1，从而与 Windows 中的 VMNet1 匹配 
+配置虚拟机新网卡 ip 地址：</p>
+<pre><code class="language-cpp">ifconfig eth0 192.168.1.30
+</code></pre>
+<p>配置 Windows 网卡 ip 地址为 192.168.1.40 
+<img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/win%E4%B8%BB%E6%9C%BAip%E5%9C%B0%E5%9D%80.png" />
+<img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BD%91%E5%8D%A1.png" /></p>
 
 
 
@@ -502,10 +627,10 @@ docs/
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>

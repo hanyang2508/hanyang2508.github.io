@@ -1,0 +1,790 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://hanyang2508.github.io/Notes%20On%20CUDA%20C%2B%2B%20Programming%20Guide/">
+      
+      
+        <link rel="prev" href="../Linux%20C%2B%2B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+      
+      
+        <link rel="next" href="../Visual%20Studio%20%28VS%29%20%E9%85%8D%E7%BD%AE/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>Notes On CUDA C++ Programming Guide - Han YANG's BLOG</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notes-on-cuda-c-programming-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Han YANG&#39;s BLOG" class="md-header__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Han YANG's BLOG
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notes On CUDA C++ Programming Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Han YANG&#39;s BLOG" class="md-nav__button md-logo" aria-label="Han YANG's BLOG" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Han YANG's BLOG
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C%26CPP%20Debug%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C&CPP Debug笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLion%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CLion配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux%20C%2B%2B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux C++开发环境搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Notes On CUDA C++ Programming Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Notes On CUDA C++ Programming Guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1_Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_programming-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2_Programming Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2_Programming Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1_Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_thread-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2_Thread Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_memory-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3_Memory Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_heterogeneous-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4_Heterogeneous Programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_asynchronous-simt-programming-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5_Asynchronous SIMT Programming Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26_compute-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6_Compute Capability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_programming-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3_Programming Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3_Programming Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_compilation-with-nvcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1_Compilation with NVCC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visual%20Studio%20%28VS%29%20%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Studio (VS) 配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmake%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CMake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1_introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1_Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2_programming-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2_Programming Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2_Programming Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21_kernels" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1_Kernels
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_thread-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2_Thread Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_memory-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3_Memory Hierarchy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_heterogeneous-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4_Heterogeneous Programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_asynchronous-simt-programming-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5_Asynchronous SIMT Programming Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26_compute-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6_Compute Capability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_programming-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3_Programming Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3_Programming Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_compilation-with-nvcc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1_Compilation with NVCC
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="notes-on-cuda-c-programming-guide">Notes On CUDA C++ Programming Guide</h1>
+<p>原文链接：<a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/contents.html">Contents — CUDA C Programming Guide</a></p>
+<h2 id="1_introduction">1_Introduction</h2>
+<p>GPU 和 CPU 的区别</p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928121646.png" /></p>
+<p>GPU 的计算应用</p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928121949.png" /></p>
+<p>CUDA 并行编程模型是一种可拓展的编程模型，它的核心是三个关键的抽象：线程组；共享内存；同步屏障（barrier synchronization）。这三个抽象使得细粒度的数据并行和线程并行嵌套在了粗粒度的数据并行和任务并行中。</p>
+<p>通过简单缩放多处理器和内存分区的数量，就可以实现可拓展的编程，而且只有 runtime system 需要知道物理多处理器数量</p>
+<p><img alt="Figure3_自动可扩展性" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928183006.png" /> ^5c4cc5</p>
+<h2 id="2_programming-model">2_Programming Model</h2>
+<p>^ca8e6f</p>
+<h3 id="21_kernels">2.1_Kernels</h3>
+<p>kernel 通过 <code>__global__</code> 定义，通过 <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> 指定配置。常规 C++函数只执行一次，CUDA C++的函数 Kernels 在 N 个不同的 CUDA 线程上执行 N 次。执行核的每个线程都有一个独一无二的线程 ID。  </p>
+<pre><code class="language-cpp">// Kernel definition
+__global__ void VecAdd(float* A, float* B, float* C)
+{
+    int i = threadIdx.x;
+    C[i] = A[i] + B[i];
+}
+
+int main()
+{
+    ...
+    // Kernel invocation with N threads
+    VecAdd&lt;&lt;&lt;1, N&gt;&gt;&gt;(A, B, C);
+    ...
+}
+</code></pre>
+<h3 id="22_thread-hierarchy">2.2_Thread Hierarchy</h3>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928235527.png" /></p>
+<p><code>threadIdx</code> 是一个三分量向量。对于一个三维尺寸为 $(Dx, Dy, Dz)$ 的 thread block, 线程索引为 $(x, y, z)$  的线程 ID 为 $x+y\cdot Dx+z\cdot Dx \cdot Dy$。</p>
+<p><code>#include &lt;device_launch_parameters.h&gt;</code></p>
+<pre><code class="language-cpp">// Kernel definition
+__global__ void MatAdd(float A[N][N], float B[N][N],
+                       float C[N][N])
+{
+    int i = threadIdx.x;
+    int j = threadIdx.y;
+    C[i][j] = A[i][j] + B[i][j];
+}
+
+int main()
+{
+    ...
+    // Kernel invocation with one block of N * N * 1 threads
+    int numBlocks = 1;
+    dim3 threadsPerBlock(N, N);
+    MatAdd&lt;&lt;&lt;numBlocks, threadsPerBlock&gt;&gt;&gt;(A, B, C);
+    ...
+}
+</code></pre>
+<p>因为一个 block 上的所有线程要共享同一个 SM (streaming multiprocessor)，所以在目前的 GPU 上，单个 thread block最多包含 1024 个线程。</p>
+<p>Blocks 同时也会被组织成一维、二维或者三维的线程块网格 (grid)，并可以通过内置变量 <code>blockIdx, blockDim</code> 访问 kernel 中的唯一索引。</p>
+<p>The number of threads per block and the number of blocks per grid specified in the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> syntax can be of type <code>int</code> or <code>dim3</code>。</p>
+<pre><code class="language-cpp">// Kernel definition
+__global__ void MatAdd(float A[N][N], float B[N][N],
+float C[N][N])
+{
+    int i = blockIdx.x * blockDim.x + threadIdx.x;
+    int j = blockIdx.y * blockDim.y + threadIdx.y;
+    if (i &lt; N &amp;&amp; j &lt; N)
+        C[i][j] = A[i][j] + B[i][j];
+}
+
+int main()
+{
+    ...
+    // Kernel invocation
+    dim3 threadsPerBlock(16, 16);
+    dim3 numBlocks(N / threadsPerBlock.x, N / threadsPerBlock.y);
+    MatAdd&lt;&lt;&lt;numBlocks, threadsPerBlock&gt;&gt;&gt;(A, B, C);
+    ...
+}
+</code></pre>
+<p>虽然线程块的尺寸可以任意选择，但通常设置为 $16\times 16$（256 threads）。线程块需要能够独立执行，这种独立性保证 thread block 可以以任何顺序（并行或者串行）在任何数量的 cores 上调度（[[#^5c4cc5|Figure3_自动可扩展性]] ），从而使得程序能够随内核数量而拓展并行速度</p>
+<p>block 内的 threads 可以通过 shared memory 和 synchronize 来协调内存访问。内置函数 <code>__syncthreads()</code> 充当一个屏障，block 中的所有线程都必须等待其他线程执行到此处。</p>
+<p>共享内存应该是靠近处理器核心的低延迟内存（很像 L1 cache），<code>__syncthreads()</code> 应该是轻量的。</p>
+<p>还有一种可选的层次结构叫 Thread Block Clusters。 #待办 </p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928235549.png" /></p>
+<h3 id="23_memory-hierarchy">2.3_Memory Hierarchy</h3>
+<p>CUDA 线程在执行过程中可能访问多种内存空间。此外还有两个只读内存空间可供所有线程访问：常量内存空间和纹理内存空间 (the constant and texture memory spaces)</p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240928235906.png" /></p>
+<h3 id="24_heterogeneous-programming">2.4_Heterogeneous Programming</h3>
+<p>CUDA 编程模型假设串行代码在主机 host 上执行，而并行代码（CUDA 线程）在物理上独立的设备 device 上执行，所以主机和设备分别维护自己的内存（主机内存和设备内存）。主机程序管理对设备内核可见的全局、常量和纹理内存空间，包括设备内存的分配和释放，以及主机和设备之间的数据交互。</p>
+<p>Unified Memory 提供 managed memory 来桥接主机和设备内存空间。managed memory可以从系统中的所有 CPU 和 GPU 访问，作为具有公共地址空间的单个连贯内存映像。</p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20240929000420.png" /></p>
+<h3 id="25_asynchronous-simt-programming-model">2.5_Asynchronous SIMT Programming Model</h3>
+<p>在 CUDA 编程模型中，线程是进行计算或内存操作的最低抽象层级。</p>
+<p>异步操作被定义为由 CUDA 线程发起并异步执行的操作，就像由另一个线程执行一样，发起异步操作的 CUDA 线程不需要在同步线程中。异步操作使用同步对象来同步操作的完成。
+同步对象可以是 <code>cuda::barrier</code> or <code>cuda::pipeline</code></p>
+<h3 id="26_compute-capability">2.6_Compute Capability</h3>
+<p>设备的计算能力由版本号表示，有时也称为“SM 版本”。具有相同主要修订号的设备具有相同的核心架构。</p>
+<h2 id="3_programming-interface">3_Programming Interface</h2>
+<p>CUDA C++由 C++语言的一组最小扩展和一个 runtime library 组成。核心语言拓展在 [[#^ca8e6f|2_Programming Model]] 中已经介绍了，任何包含这些拓展的源文件必须使用 <code>nvcc</code> 进行编译</p>
+<p>runtime 提供在主机上执行的 C 和 C++函数，用于分配和释放设备内存、在主机内存和设备内存之间传输数据、管理具有多个设备的系统等。</p>
+<h3 id="31_compilation-with-nvcc">3.1_Compilation with NVCC</h3>
+<h1 id="_1">待办</h1>
+<h3 id="32_cuda-runtime">3.2_CUDA Runtime</h3>
+<p>runtime 在 <code>cudart</code> 库中实现
+静态库：<code>cudart.lib</code> (windows) 或 <code>libcudart.a</code> (linux)
+动态库：<code>cudart.dll</code> (windows) 或 <code>libcudart.so</code> (linux)</p>
+<p>它的所有入口点都以 <code>cuda</code> 作为前缀 </p>
+<h4 id="321_initialization">3.2.1_Initialization</h4>
+<ol>
+<li>CUDA 12.0 之后：<ul>
+<li>调用 <code>cudaInitDevice()</code> and <code>cudaSetDevice()</code> 会初始化运行时环境以及与指定设备关联的主上下文 (primary context)。</li>
+<li>如果没有显式调用这些函数，运行时将默认使用 <code>device 0</code>，并在需要时自动进行初始化，以便处理其他运行时 API 请求。</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>当你在 <strong>计时</strong> runtime function 调用时，或者在解释第一次调用运行时时返回的错误代码时，需要考虑上述初始化行为。</li>
+<li>原因是：初始化过程会引入额外的开销（例如，启动时间），而且在初始化之前，错误代码可能不同于初始化之后的错误代码。</li>
+</ul>
+</li>
+<li>CUDA 12.0 之前<ul>
+<li><code>cudaSetDevice()</code> 不会初始化runtime。因此，开发者通常会使用 <code>cudaFree(0)</code> 这样的无操作调用来显式初始化运行时环境。</li>
+<li>这样做的目的是将运行时初始化与其他 API 活动（例如计时、错误处理）分开，以便更精确地控制和分析性能。</li>
+</ul>
+</li>
+</ol>
+<p>CUDA Runtime 会为系统中的每个 device 创建一个 CUDA context，并在所有主机线程之间共享。context 是 CUDA 中用于管理设备资源（如内存和内核配置）的结构，可以理解为每个设备的运行环境。</p>
+<h3 id="322_device-memory">3.2.2_Device Memory</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
