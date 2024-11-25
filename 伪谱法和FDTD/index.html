@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://hanyang2508.github.io/C%26CPP%20Debug%E7%AC%94%E8%AE%B0/">
+        <link rel="canonical" href="https://hanyang2508.github.io/%E4%BC%AA%E8%B0%B1%E6%B3%95%E5%92%8CFDTD/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../cmake%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">
       
       
-        <link rel="next" href="../CLion%E9%85%8D%E7%BD%AE/">
+        <link rel="next" href="../%E5%85%A8%E6%B3%A2%E5%BD%A2%E5%8F%8D%E6%BC%94%E7%9A%84%E5%8F%82%E6%95%B0%E6%A2%AF%E5%BA%A6%E6%9B%B4%E6%96%B0%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>C&CPP Debug笔记 - Han YANG's BLOG</title>
+        <title>伪谱法和FDTD - Han YANG's BLOG</title>
       
     
     
@@ -63,11 +63,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#segmentation-fault-core-dumped" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C&CPP Debug笔记
+              伪谱法和FDTD
             
           </span>
         </div>
@@ -210,28 +205,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C&CPP Debug笔记
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../C%26CPP%20Debug%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -240,33 +217,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#segmentation-fault-core-dumped" class="md-nav__link">
-    <span class="md-ellipsis">
-      如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -375,10 +325,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%E4%BC%AA%E8%B0%B1%E6%B3%95%E5%92%8CFDTD/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -387,6 +344,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -429,23 +387,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#segmentation-fault-core-dumped" class="md-nav__link">
-    <span class="md-ellipsis">
-      如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -459,48 +400,54 @@
                   
 
 
-  <h1>C&CPP Debug笔记</h1>
+  <h1>伪谱法和FDTD</h1>
 
-<h2 id="segmentation-fault-core-dumped">如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？</h2>
-<p>使用调试器（例如 GDB 在 Linux 中）来定位和修复"Segmentation fault (core dumped)"错误是一个很好的方法。以下是一些基本步骤：</p>
-<ol>
-<li><strong>编译你的程序以包含调试信息</strong>。在使用 gcc 编译你的程序时，可以添加 <code>-g</code> 选项来生成调试信息：</li>
-</ol>
-<p><code>bash
-    gcc -g myprogram.c -o myprogram</code></p>
-<pre><code>这将生成一个名为 `myprogram` 的可执行文件，其中包含了源代码的行信息，这使得 GDB 可以显示源代码行信息。
-</code></pre>
-<ol>
-<li><strong>运行 GDB</strong>。在命令行中键入 <code>gdb</code>，后面跟上你的程序名：</li>
-</ol>
-<p><code>bash
-    gdb myprogram</code></p>
-<pre><code>这将启动 GDB，并加载你的程序。
-</code></pre>
-<ol>
-<li><strong>运行你的程序</strong>。在 GDB 提示符下，键入 <code>run</code>（或简写为 <code>r</code>）以开始运行你的程序：</li>
-</ol>
-<p><code>bash
-    (gdb) run</code></p>
-<pre><code>如果你的程序需要命令行参数，可以在 `run` 命令后面添加这些参数。
-</code></pre>
-<ol>
-<li><strong>当程序出现段错误时，GDB 将停止并显示一条消息</strong>。这时，你可以使用 <code>backtrace</code>（或简写为 <code>bt</code>）命令来显示函数调用堆栈：</li>
-</ol>
-<p><code>bash
-    (gdb) backtrace</code></p>
-<pre><code>这将显示出导致段错误的函数调用序列。最顶部的函数调用是最后发生的，也就是导致段错误的地方。
-</code></pre>
-<ol>
-<li><strong>查看源代码和变量值</strong>。你可以使用 <code>list</code>（或简写为 <code>l</code>）命令来查看源代码，使用 <code>print</code>（或简写为 <code>p</code>）命令来查看变量值：</li>
-</ol>
-<p><code>bash
-    (gdb) list
-    (gdb) print myvariable</code></p>
-<ol>
-<li><strong>修复你的代码</strong>。根据 GDB 的输出，你应该能找出导致段错误的代码行和变量。修复这些问题，然后重新编译和运行你的程序，如果还有其他的问题，重复上述步骤。</li>
-</ol>
-<p>记住，"Segmentation fault (core dumped)"通常是由于尝试访问非法内存（如解引用空指针，访问数组越界等）导致的。在你的代码中寻找这类问题，并尝试理解为何会尝试访问这些非法内存。</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th><strong>伪谱法</strong></th>
+<th><strong>FDTD</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数值方法</strong></td>
+<td>使用频域信息进行计算</td>
+<td>时域有限差分法，时间和空间均离散化</td>
+</tr>
+<tr>
+<td><strong>计算区域</strong></td>
+<td>利用全局信息迭代求解</td>
+<td>利用每个点附近的局部信息迭代求解</td>
+</tr>
+<tr>
+<td><strong>计算效率</strong></td>
+<td>因为所需网格小，所以计算效率较高，适合大规模问题</td>
+<td>计算效率通常较低，计算量较大</td>
+</tr>
+<tr>
+<td><strong>内存需求</strong></td>
+<td>较低，所需网格间距至少每波长 4 个点</td>
+<td>较高，所需网格间距至少每波长 10 个点</td>
+</tr>
+<tr>
+<td><strong>适用问题</strong></td>
+<td>适合建模弱散射介质中的声波传播，但对于骨状高对比度散射体的计算准确度不如 FDTD</td>
+<td>对简单几何和边界条件模拟效果佳</td>
+</tr>
+<tr>
+<td><strong>精度</strong></td>
+<td>精度较高，尤其适合高频声波模拟。</td>
+<td>精度受网格尺寸影响，较粗网格会降低精度</td>
+</tr>
+</tbody>
+</table>
+<p>加快 FDTD 计算：
+在每个时间步长，仅对波场非零的网格部分进行计算；</p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20241104005813.png" /></p>
+<p><img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20241104011006.png" />
+<img alt="image.png" src="https://image-host-1316314535.cos.ap-beijing.myqcloud.com/Obsidian%20Image/20241104011218.png" /></p>
 
 
 

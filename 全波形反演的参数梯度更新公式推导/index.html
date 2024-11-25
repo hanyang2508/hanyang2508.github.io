@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://hanyang2508.github.io/C%26CPP%20Debug%E7%AC%94%E8%AE%B0/">
+        <link rel="canonical" href="https://hanyang2508.github.io/%E5%85%A8%E6%B3%A2%E5%BD%A2%E5%8F%8D%E6%BC%94%E7%9A%84%E5%8F%82%E6%95%B0%E6%A2%AF%E5%BA%A6%E6%9B%B4%E6%96%B0%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../%E4%BC%AA%E8%B0%B1%E6%B3%95%E5%92%8CFDTD/">
       
-      
-        <link rel="next" href="../CLion%E9%85%8D%E7%BD%AE/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>C&CPP Debug笔记 - Han YANG's BLOG</title>
+        <title>全波形反演的参数梯度更新公式推导 - Han YANG's BLOG</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#segmentation-fault-core-dumped" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              C&CPP Debug笔记
+              全波形反演的参数梯度更新公式推导
             
           </span>
         </div>
@@ -210,28 +208,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    C&CPP Debug笔记
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../C%26CPP%20Debug%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -240,33 +220,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#segmentation-fault-core-dumped" class="md-nav__link">
-    <span class="md-ellipsis">
-      如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -395,10 +348,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../%E5%85%A8%E6%B3%A2%E5%BD%A2%E5%8F%8D%E6%BC%94%E7%9A%84%E5%8F%82%E6%95%B0%E6%A2%AF%E5%BA%A6%E6%9B%B4%E6%96%B0%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    全波形反演的参数梯度更新公式推导
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -407,6 +380,50 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基于时域
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基于时域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度 - 密度参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -428,6 +445,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -436,11 +455,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#segmentation-fault-core-dumped" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？
+      基于时域
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="基于时域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度 - 密度参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -459,48 +493,89 @@
                   
 
 
-  <h1>C&CPP Debug笔记</h1>
-
-<h2 id="segmentation-fault-core-dumped">如何使用调试器来定位和修复"Segmentation fault (core dumped)"错误？</h2>
-<p>使用调试器（例如 GDB 在 Linux 中）来定位和修复"Segmentation fault (core dumped)"错误是一个很好的方法。以下是一些基本步骤：</p>
-<ol>
-<li><strong>编译你的程序以包含调试信息</strong>。在使用 gcc 编译你的程序时，可以添加 <code>-g</code> 选项来生成调试信息：</li>
-</ol>
-<p><code>bash
-    gcc -g myprogram.c -o myprogram</code></p>
-<pre><code>这将生成一个名为 `myprogram` 的可执行文件，其中包含了源代码的行信息，这使得 GDB 可以显示源代码行信息。
-</code></pre>
-<ol>
-<li><strong>运行 GDB</strong>。在命令行中键入 <code>gdb</code>，后面跟上你的程序名：</li>
-</ol>
-<p><code>bash
-    gdb myprogram</code></p>
-<pre><code>这将启动 GDB，并加载你的程序。
-</code></pre>
-<ol>
-<li><strong>运行你的程序</strong>。在 GDB 提示符下，键入 <code>run</code>（或简写为 <code>r</code>）以开始运行你的程序：</li>
-</ol>
-<p><code>bash
-    (gdb) run</code></p>
-<pre><code>如果你的程序需要命令行参数，可以在 `run` 命令后面添加这些参数。
-</code></pre>
-<ol>
-<li><strong>当程序出现段错误时，GDB 将停止并显示一条消息</strong>。这时，你可以使用 <code>backtrace</code>（或简写为 <code>bt</code>）命令来显示函数调用堆栈：</li>
-</ol>
-<p><code>bash
-    (gdb) backtrace</code></p>
-<pre><code>这将显示出导致段错误的函数调用序列。最顶部的函数调用是最后发生的，也就是导致段错误的地方。
-</code></pre>
-<ol>
-<li><strong>查看源代码和变量值</strong>。你可以使用 <code>list</code>（或简写为 <code>l</code>）命令来查看源代码，使用 <code>print</code>（或简写为 <code>p</code>）命令来查看变量值：</li>
-</ol>
-<p><code>bash
-    (gdb) list
-    (gdb) print myvariable</code></p>
-<ol>
-<li><strong>修复你的代码</strong>。根据 GDB 的输出，你应该能找出导致段错误的代码行和变量。修复这些问题，然后重新编译和运行你的程序，如果还有其他的问题，重复上述步骤。</li>
-</ol>
-<p>记住，"Segmentation fault (core dumped)"通常是由于尝试访问非法内存（如解引用空指针，访问数组越界等）导致的。在你的代码中寻找这类问题，并尝试理解为何会尝试访问这些非法内存。</p>
+<h1 id="_1">全波形反演的参数梯度更新公式推导</h1>
+<h2 id="_2">基于时域</h2>
+<h3 id="-">速度 - 密度参数</h3>
+<p>采用微扰法推导的全过程如下：</p>
+<p>时域声波方程为：
+$$
+-\frac{1}{\rho v^2} \frac{\partial^2 u(v, \rho)}{\partial t^2}+\operatorname{div} \cdot \frac{1}{\rho} \nabla u(v, \rho)=-f \cdot \delta\left(\boldsymbol{x}-\boldsymbol{x}<em>s\right)
+$$
+当介质参数发生微扰时，波场也会产生微扰，因此扰动后的时域声波方程为
+$$
+\begin{aligned}
+&amp;- \frac{1}{(\rho+\delta \rho)(v+\delta v)^2} \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2} \
+&amp;+\operatorname{div} \cdot \frac{1}{\rho+\delta \rho} \nabla u(v+\delta v, \rho+\delta \rho)=-f \cdot \delta\left(\boldsymbol{x}-\boldsymbol{x}_s\right) \
+&amp;
+\end{aligned}
+$$
+以上两式相减，并利用下面的近似
+$$
+\frac{1}{(v+\delta v)^2}=\frac{1}{v^2}-\frac{2 \delta v}{v^3}+o\left(\delta v^2\right), \quad \frac{1}{\rho+\delta \rho}=\frac{1}{\rho}-\frac{\delta \rho}{\rho^2}+o\left(\delta \rho^2\right)
+$$
+化简后可得下式，其中 $\delta u=u (v+\delta v, \rho+\delta \rho)-u (v, \rho)$ 
+$$
+\begin{aligned}
+&amp; \left(-\frac{1}{\rho v^2} \frac{\partial^2 \delta u}{\partial t^2}+\operatorname{div} \cdot \frac{1}{\rho} \nabla \delta u\right)+\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2} \
+&amp; -\operatorname{div} \cdot \frac{\delta \rho}{\rho^2} \nabla u(v+\delta v, \rho+\delta \rho)+o\left(\delta v^2+\delta \rho^2\right)=0
+\end{aligned}
+$$
+为了得到波场扰动量和介质参数扰动量之间的关系，上式可以进一步化简为
+$$
+\begin{aligned}
+\left(-\frac{1}{\rho v^2} \frac{\partial^2 \delta u}{\partial t^2}+\operatorname{div} \cdot \frac{1}{\rho} \nabla \delta u\right)=&amp;-\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2} 
+ \ &amp;+\operatorname{div} \cdot \frac{\delta \rho}{\rho^2} \nabla u(v+\delta v, \rho+\delta \rho)+o\left(\delta v^2+\delta \rho^2\right)
+\end{aligned}
+$$
+因此由格林函数定义可知
+$$
+\begin{aligned}
+\delta u =&amp; G\ast F \
+=&amp; -\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2} \ast G</em>{0} +\operatorname{div} \cdot \frac{\delta \rho}{\rho^2} \nabla u(v+\delta v, \rho+\delta \rho) \ast G_{0}
+\end{aligned}
+$$
+因为误差函数
+$$
+\begin{aligned}
+\delta \mathcal{F}(v, \rho)= &amp; \mathcal{F}(v+\delta v, \rho+\delta \rho)-\mathcal{F}(v, \rho) \
+=&amp;\sum_{\text {shot }} \int_T \int_{\Omega} \delta \frac{1}{2}\left[u-u_{\mathrm{obs}}\right]^2 \delta\left(\boldsymbol{x}-\boldsymbol{x}<em>r\right) d x d z d t \
+= &amp; \sum</em>{\text {shot }} \int_T \int_{\Omega}\left(u-u_{\mathrm{obs}}\right) \delta\left(\boldsymbol{x}-\boldsymbol{x}<em>r\right) \delta u d x d z d t
+\end{aligned}
+$$
+所以误差函数关于速度和密度的梯度为 
+$$
+\frac{\delta \mathcal{F}}{\delta m</em>{i}}= \sum_{\text {shot }} \int_T \int_{\Omega}\frac{\delta u}{\delta m_{i}} \delta\left(\boldsymbol{x}-\boldsymbol{x}<em>r\right) \delta u d x d z d t
+$$
+令 $\delta v, \delta \rho \rightarrow 0$， 即得
+$$
+\begin{aligned}
+\frac{\partial \mathcal{F}}{\partial \rho}= &amp; -\sum</em>{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \frac{1}{\rho^2} \nabla \phi \cdot \nabla u d x d z d t \
+&amp; -\sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \frac{1}{\rho^2 v^2} \phi \frac{\partial^2 u}{\partial t^2} \delta \rho d x d z d t \
+\frac{\partial \mathcal{F}}{\partial v}= &amp; -\sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \frac{2}{\rho v^3} \phi \frac{\partial^2 u}{\partial t^2} d x d z d t 
+\end{aligned}
+$$</p>
+<p>$$
+\begin{aligned}
+\delta \mathcal{F}(v, \rho)= &amp; \sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \phi\left(-\frac{1}{\rho v^2} \frac{\partial^2 \delta u}{\partial t^2}+\mathrm{div} \cdot \frac{1}{\rho} \nabla \delta u\right) d x d z d t \
+= &amp; \sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \phi\left[-\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2}\right] d x d z d t \
+&amp; +\sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \phi\left[\operatorname{div} \cdot \frac{\delta \rho}{\rho^2} \nabla u(v+\delta v, \rho+\delta \rho)\right] d x d z d t+o\left(\delta v^2+\delta \rho^2\right) .
+\end{aligned}
+$$</p>
+<p>再对 (8.4.29) 等式右端第二项空间上应用格林公式及边界条件, 可得
+$$
+\begin{aligned}
+\delta \mathcal{F}(v, \rho)= &amp; \sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \phi\left[-\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2}\right] d x d z d t \
+&amp; +\sum_{\boldsymbol{x}<em>s} \int_T d t\left{\left.\frac{\delta \rho}{\rho^2} \frac{\partial u(v+\delta v, \rho+\delta \rho)}{\partial \boldsymbol{n}} \phi\right|</em>{\partial \Omega}\right. \
+&amp; \left.-\int_{\Omega} \frac{\delta \rho}{\rho^2} \nabla \phi \cdot \nabla u(v+\delta v, \rho+\delta \rho) d x d z\right}+o\left(\delta v^2+\delta \rho^2\right),
+\end{aligned}
+$$</p>
+<p>也即
+$$
+\begin{aligned}
+\delta \mathcal{F}(v, \rho)= &amp; -\sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega}\left(\frac{\delta \rho}{\rho^2 v^2}+\frac{2 \delta v}{\rho v^3}\right) \phi \frac{\partial^2 u(v+\delta v, \rho+\delta \rho)}{\partial t^2} d x d z d t \
+&amp; -\sum_{\boldsymbol{x}<em>s} \int_T \int</em>{\Omega} \frac{\delta \rho}{\rho^2} \nabla \phi \cdot \nabla u(v+\delta v, \rho+\delta \rho) d x d z d t+o\left(\delta v^2+\delta \rho^2\right),
+\end{aligned}
+$$</p>
 
 
 
